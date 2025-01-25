@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Agenda-Web/Assets/Login.css">
+    <title>Login con SessionStorage</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form id="loginForm">
+                <h1>Inicia Sesión</h1>
+                <input id="email" type="email" placeholder="Email" required />
+                <input id="password" type="password" placeholder="Password" required />
+                <a href="/Agenda-Web/Agenda-Web/contactos.html" onclick="saveSessionData()">
+                    <button type="button">Sign In</button>
+                </a>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Únete</h1>
+                    <p>Regístrate para tener una experiencia personalizada y más adecuada</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveSessionData() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            sessionStorage.setItem('email', email);
+            sessionStorage.setItem('password', password);
+        }
+    </script>
+</body>
+
+</html>
+
