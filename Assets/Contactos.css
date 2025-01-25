@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color: #4B4A4B;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: #FF4B2B;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo a {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #333;
+    color: #FF4B2B;
+    transform: translateY(-3px);
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 300;
+    line-height: 1.2em;
+    text-align: center;
+    color: #FD2E4A;
+    margin-top: 40px;
+}
+
+/* Table Styling */
+.listado {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.listado th {
+    background-color: #FF4B2B;
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+.listado td {
+    padding: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Encabezados más pequeños y en blanco */
+.listado th h1 {
+    font-size: 1em;  /* Reducir el tamaño de la fuente */
+    font-weight: bold; /* Mantener la negrita */
+    color: #FFFFFF; /* Cambiar color a blanco */
+    margin: 0;  /* Eliminar el margen */
+    padding: 10px 0;  /* Ajustar el padding */
+    text-align: left;  /* Alinear a la izquierda */
+}
+
+
+.listado tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.listado tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.listado tr:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.listado td a {
+    color: #4B4A4B;
+    text-decoration: none;
+}
+
+.listado td a:hover {
+    color: #FF4B2B;
+}
+
+.listado td.icono:hover {
+    background-color: #000000;
+    transform: translate3d(6px, -6px, 0);
+    transition: all 0.3s ease;
+}
+
+.dorado {
+    color: #FFD700;
+}
+
+.listado th:nth-child(4), .listado td:nth-child(4) {
+    width: 10%;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .listado {
+        width: 90%;
+    }
+
+    nav a {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}
