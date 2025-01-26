@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Agenda-Web/Assets/ToDo-List.css">
+    <title>To-Do List</title>
+
+    <nav>
+        <div class="logo">
+            <a href="/Agenda-Web/contactos.html">Agenda</a>
+        </div>
+        <a href="/Agenda-Web/contactos.html">Contactos</a>
+        <a href="/Agenda-Web/favoritos.html">Ver Favoritos</a>
+        <a href="/Agenda-Web/perfil.html">Ver Perfil</a>
+    </nav>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>To-Do List</h1>
+
+        <div class="task-form">
+            <input type="text" id="taskName" placeholder="Escribe la tarea..." required />
+            <select id="priority" required>
+                <option value="">Selecciona la prioridad</option>
+                <option value="1">Alta</option>
+                <option value="2">Media</option>
+                <option value="3">Baja</option>
+            </select>
+            <button onclick="addTask()">Agregar Tarea</button>
+        </div>
+
+        <ul class="task-list" id="taskList"></ul>
+    </div>
+
+
+    <div id="editMenu" style="display: none;">
+        <div>
+            <input type="text" id="editTaskName" placeholder="Nuevo nombre de tarea" />
+            <select id="editPriority">
+                <option value="1">Alta</option>
+                <option value="2">Media</option>
+                <option value="3">Baja</option>
+            </select>
+            <button onclick="saveEdit()">Guardar cambios</button>
+            <button onclick="closeEditMenu()">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        // Array to store tasks
+        let tasks = [];
+        let editingTask = null;
+
+        // Function to add task
+        function addTask() {
+            const taskName = document.getElementById('taskName').value;
+            const priority = document.getElementById('priority').value;
+
+            if (taskName === '' || priority === '') {
+                alert('Por favor ingresa todos los campos.');
+                return;
+            }
+
+            // Create new task object
+            const newTask = {
+                name: taskName,
+                priority: parseInt(priority),
+                id: Date.now()
+            };
+
+            // Add task to tasks array
+            tasks.push(newTask);
+
+            // Clear the input fields
+            document.getElementById('taskName').value = '';
+            document.getElementById('priority').value = '';
+
+            // Sort tasks by priority
+            tasks.sort((a, b) => a.priority - b.priority);
+
+            // Render the task list
+            renderTasks();
+        }
+
+        // Function to render tasks
+        function renderTasks() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = ''; // Clear current list
+
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.className = 'task-item';
+
+                li.innerHTML = `
+                    <span>${task.name} - Prioridad: ${task.priority === 1 ? 'Alta' : task.priority === 2 ? 'Media' : 'Baja'}</span>
+                    <div>
+                        <button onclick="editTask(${task.id})">Editar</button>
+                        <button onclick="deleteTask(${task.id})">Eliminar</button>
+                    </div>
+                `;
+
+                taskList.appendChild(li);
+            });
+        }
+
+        // Function to show edit menu
+        function editTask(id) {
+            editingTask = tasks.find(task => task.id === id);
+            if (!editingTask) return;
+
+            document.getElementById('editTaskName').value = editingTask.name;
+            document.getElementById('editPriority').value = editingTask.priority;
+            document.getElementById('editMenu').style.display = 'block';
+        }
+
+        // Function to save edited task
+        function saveEdit() {
+            const newName = document.getElementById('editTaskName').value;
+            const newPriority = document.getElementById('editPriority').value;
+
+            if (newName && newPriority) {
+                editingTask.name = newName;
+                editingTask.priority = parseInt(newPriority);
+
+                // Sort tasks by priority
+                tasks.sort((a, b) => a.priority - b.priority);
+
+                // Render the task list
+                renderTasks();
+
+                // Close the edit menu
+                closeEditMenu();
+            } else {
+                alert('Por favor ingresa todos los campos.');
+            }
+        }
+
+        // Function to close edit menu
+        function closeEditMenu() {
+            document.getElementById('editMenu').style.display = 'none';
+        }
+
+        // Function to delete task
+        function deleteTask(id) {
+            tasks = tasks.filter(task => task.id !== id);
+            renderTasks();
+        }
+    </script>
+
+</body>
+
+</html>

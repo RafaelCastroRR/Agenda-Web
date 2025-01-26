@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Formulario de contacto</title>
@@ -7,12 +8,13 @@
   <link rel="stylesheet" type="text/css" href="/Agenda-Web/Assets/agregar.css">
 
 </head>
-<body>  
+
+<body>
 
   <!-- Navbar -->
   <nav>
     <div class="logo">
-      <a href="/Agenda-Web/login.html">Agenda</a>
+      <a href="/Agenda-Web/contactos.html">Agenda</a>
     </div>
     <a href="/Agenda-Web/contactos.html" class="nav-link">Contactos</a>
     <a href="favoritos.html" class="nav-link">Ver Favoritos</a>
@@ -22,19 +24,20 @@
   <!-- Formulario de contacto -->
   <div class="contact_form">
 
-    <div class="formulario">      
+    <div class="formulario">
       <h1>Formulario de contacto</h1>
       <h3>Agrega a Alguien Nuevo</h3>
 
-      <form action="submeter-formulario.php" method="post">       
+      <form action="submeter-formulario.php" method="post">
 
         <p>
           <label for="nombre" class="colocar_nombre">Nombre
             <span class="obligatorio">*</span>
           </label>
-          <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+          <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
+            placeholder="Escribe tu nombre">
         </p>
-        
+
         <p>
           <label for="email" class="colocar_email">Email
             <span class="obligatorio">*</span>
@@ -46,48 +49,51 @@
           <label for="telefono" class="colocar_telefono">Teléfono
           </label>
           <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
-        </p>    
+        </p>
 
         <p>
           <label for="website" class="colocar_website">Dirreción
           </label>
-          <input type="url" name="introducir_website" id="website" placeholder="Escribe tu dirreción" >
-        </p>    
+          <input type="url" name="introducir_website" id="website" placeholder="Escribe tu dirreción">
+        </p>
 
         <p>
-            <label for="genero">Género <span class="obligatorio">*</span></label>
-            <div class="opciones-genero">
-              <label>
-                <input type="radio" name="genero" value="Masculino" required> Masculino
-              </label>
-              <label>
-                <input type="radio" name="genero" value="Femenino" required> Femenino
-              </label>
-              <label>
-                <input type="radio" name="genero" value="Otro" required> Otro
-              </label>
-            </div>
-          </p>
+          <label for="genero">Género <span class="obligatorio">*</span></label>
+        <div class="opciones-genero">
+          <label>
+            <input type="radio" name="genero" value="Masculino" required> Masculino
+          </label>
+          <label>
+            <input type="radio" name="genero" value="Femenino" required> Femenino
+          </label>
+          <label>
+            <input type="radio" name="genero" value="Otro" required> Otro
+          </label>
+        </div>
+        </p>
 
         <p>
           <label for="mensaje" class="colocar_mensaje">Descripcion
             <span class="obligatorio">*</span>
-          </label>                     
-          <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio"></textarea> 
-        </p>                    
+          </label>
+          <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio"></textarea>
+        </p>
 
         <a href="/Agenda-Web/contactos.html" class="boton-enlace">
-            <button type="button" id="enviar"><p>Agregar</p></button>
-          </a>
-          
+          <button type="button" id="enviar">
+            <p>Agregar</p>
+          </button>
+        </a>
+
 
         <p class="aviso">
           <span class="obligatorio"> * </span>los campos son obligatorios.
-        </p>          
+        </p>
 
       </form>
-    </div>  
+    </div>
   </div>
 
 </body>
+
 </html>

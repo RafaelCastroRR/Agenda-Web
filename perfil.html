@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+    <style>
+        @charset "UTF-8";
+        @import 'https://fonts.googleapis.com/css?family=Raleway';
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            line-height: 1.42em;
+            color: #4B4A4B;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #FF4B2B;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo a {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #FF4B2B;
+            transform: translateY(-3px);
+        }
+
+        #perfil {
+            margin-top: 30px;
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: 30px auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        #perfil img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #FF4B2B;
+            margin-bottom: 20px;
+        }
+
+        #perfil h2 {
+            color: #FF4B2B;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #perfil p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #perfil span {
+            font-weight: bold;
+            color: #FF4B2B;
+        }
+
+        #perfil button {
+            background-color: #FF4B2B;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #perfil button:hover {
+            background-color: #D84E3B;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #perfil button:active {
+            background-color: #D04B2F;
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 768px) {
+            #perfil {
+                width: 90%;
+            }
+
+            #perfil h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="/Agenda-Web/contactos.html">Agenda</a>
+        </div>
+        <a href="/Agenda-Web/contactos.html" class="nav-link">Contactos</a>
+        <a href="/Agenda-Web/favoritos.html" class="nav-link">Ver Favoritos</a>
+        <a href="/Agenda-Web/perfil.html" class="nav-link">Ver Perfil</a>
+    </nav>
+
+    <div class="container">
+
+        <div id="perfil">
+            <img src="https://st2.depositphotos.com/1000393/6507/i/450/depositphotos_65076917-stock-illustration-hacker-and-terrorism-fight.jpg"
+                alt="Imagen de perfil">
+
+            <h2>Detalles del Perfil</h2>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Contraseña:</strong> <span id="password"></span></p>
+            <p><strong>Nombre:</strong> <a> Rafael Castro </a></span></p>
+            <p><strong>Fecha de Nacimiento:</strong> <a> 06-05-2006</a></span></p>
+            <p><strong>Teléfono:</strong><a> +502 3632-3559</a> </span></p>
+            <button onclick="logout()">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <script>
+        // Recupera los datos del sessionStorage y los muestra en la página
+        document.getElementById('email').textContent = sessionStorage.getItem('email') || 'No disponible';
+        document.getElementById('password').textContent = sessionStorage.getItem('password') || 'No disponible';
+
+        // Función para cerrar sesión y borrar los datos del sessionStorage
+        function logout() {
+            sessionStorage.removeItem('email');
+            sessionStorage.removeItem('password');
+            window.location.href = '/Agenda-Web/login.html'; // Redirigir al login
+        }
+    </script>
+</body>
+
+</html>

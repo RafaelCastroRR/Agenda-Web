@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/bf66789927.js"></script>
+    <link rel="stylesheet" href="/Agenda-Web/Assets/Contactos.css">
+    <title>Favoritos</title>
+    <style>
+        .foto-contacto {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .menu-desplegable {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .menu-desplegable p {
+            margin: 5px 0;
+        }
+
+        .contacto a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contacto a:hover {
+            color: #0056b3;
+        }
+
+        nav {
+            background-color: #FF4B2B;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo a {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #FF4B2B;
+            transform: translateY(-3px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 300;
+            line-height: 1.2em;
+            text-align: center;
+            color: #FD2E4A;
+            margin-top: 40px;
+        }
+
+        .listado {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .listado th {
+            background-color: #FF4B2B;
+            padding: 15px;
+            font-size: 1.2em;
+        }
+
+        .listado td {
+            padding: 15px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .listado th h1 {
+            font-size: 1em;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        .listado tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .listado tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        .listado tr:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .listado td a {
+            color: #4B4A4B;
+            text-decoration: none;
+        }
+
+        .listado td a:hover {
+            color: #FF4B2B;
+        }
+
+        .listado td.icono:hover {
+            background-color: #000000;
+            transform: translate3d(6px, -6px, 0);
+            transition: all 0.3s ease;
+        }
+
+        .dorado {
+            color: #FFD700;
+        }
+
+        .listado th:nth-child(4),
+        .listado td:nth-child(4) {
+            width: 10%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .listado {
+                width: 90%;
+            }
+
+            nav a {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="/Agenda-Web/contactos.html">Agenda</a>
+        </div>
+        <a href="/Agenda-Web/agregacontacto.html" class="nav-link">Agregar Contacto</a>
+        <a href="/Agenda-Web/contactos.html" class="nav-link">Contacto</a>
+        <a href="perfil.html" class="nav-link">Ver Perfil</a>
+    </nav>
+
+    <h1>Favoritos</h1>
+
+    <table class="listado">
+        <thead>
+            <tr>
+                <th>
+                    <h1>ID</h1>
+                </th>
+                <th>
+                    <h1>Nombre</h1>
+                </th>
+                <th>
+                    <h1>Numero</h1>
+                </th>
+                <th>
+                    <h1>Opciones</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>U001</td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto"
+                        class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-1')">Juan Carlos Merlos</a>
+                    <div id="menu-1" class="menu-desplegable">
+                        <p><strong>Correo:</strong> juan.merlos@gmail.com</p>
+                        <p><strong>Dirección:</strong>Avenida Reforma 6-20</p>
+                        <p><strong>Género:</strong> Masculino</p>
+                        <p><strong>Descripción:</strong> Proveedor de Frutas</p>
+                    </div>
+                </td>
+                <td>+502 4567 8901</td>
+                <td class="icono"><a href="#"><span class="fa fa-star fa-2x dorado"></span></a></td>
+            </tr>
+            <tr>
+                <td>U002</td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto"
+                        class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-2')">Ana Mirna Contreras</a>
+                    <div id="menu-2" class="menu-desplegable">
+                        <p><strong>Correo:</strong> ana.mirna@gmail.com</p>
+                        <p><strong>Dirección:</strong> Zona 2, Mixco</p>
+                        <p><strong>Género:</strong> Femenino</p>
+                        <p><strong>Descripción:</strong> Amiga</p>
+                    </div>
+                </td>
+                <td>+502 3201 2345</td>
+                <td class="icono"><a href="#"><span class="fa fa-star fa-2x dorado"></span></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function toggleMenu(menuId) {
+            var menu = document.getElementById(menuId);
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
