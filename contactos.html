@@ -7,6 +7,41 @@
     <script src="https://use.fontawesome.com/bf66789927.js"></script>
     <link rel="stylesheet" href="/Agenda-Web/Assets/Contactos.css">
     <title>Listado de usuarios</title>
+    <style>
+        /* Estilo para las imágenes de contacto */
+        .foto-contacto {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Estilo del menú desplegable */
+        .menu-desplegable {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .menu-desplegable p {
+            margin: 5px 0;
+        }
+
+        .contacto a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contacto a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,36 +70,93 @@
         <tbody>
             <tr>
                 <td>U001</td>
-                <td><a href="detallescontacto.html">Juan Carlos Merlos</a></td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto" class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-1')">Juan Carlos Merlos</a>
+                    <div id="menu-1" class="menu-desplegable">
+                        <p><strong>Correo:</strong> juan.merlos@gmail.com</p>
+                        <p><strong>Dirección:</strong>Avenida Reforma 6-20</p>
+                        <p><strong>Genereo:</strong> Masculino</p>
+                        <p><strong>Descripcion:</strong>Provedoor de Frutas</p>
+
+                    </div>
+                </td>
                 <td>+502 4567 8901</td>
                 <td class="icono"><a href="#"><span class="fa fa-star fa-2x dorado"></span></a></td>
             </tr>
             <tr>
                 <td>U002</td>
-                <td><a href="detallescontacto.html">Ana Mirna Contreras</a></td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto" class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-2')">Ana Mirna Contreras</a>
+                    <div id="menu-2" class="menu-desplegable">
+                        <p><strong>Correo:</strong>Mixco Zona 2 4-60</p>
+                        <p><strong>Dirección:</strong> Avenida Secundaria #456, Ciudad</p>
+                        <p><strong>Genereo:</strong>Femenino</p>
+                        <p><strong>Descripcion:</strong>Amiga</p>
+                    </div>
+                </td>
                 <td>+502 3201 2345</td>
                 <td class="icono"><a href="#"><span class="fa fa-star fa-2x dorado"></span></a></td>
             </tr>
             <tr>
                 <td>U003</td>
-                <td><a href="detallescontacto.html">Lucía del Carmen Aguilar</a></td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto" class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-3')">Lucía del Carmen Aguilar</a>
+                    <div id="menu-3" class="menu-desplegable">
+                        <p><strong>Correo:</strong> lucia.aguilar@gmail.com</p>
+                        <p><strong>Dirección:</strong> El milagro 1-69</p>
+                        <p><strong>Genereo:</strong>Femenino</p>
+                        <p><strong>Descripcion:</strong>Compañera de Trabajo</p>
+                    </div>
+                </td>
                 <td>+502 7956 1234</td>
                 <td class="icono"><a href="#"><span class="fa fa-star fa-2x"></span></a></td>
             </tr>
             <tr>
                 <td>U004</td>
-                <td><a href="detallescontacto.html">Luis Francisco Durán</a></td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto" class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-4')">Luis Francisco Durán</a>
+                    <div id="menu-4" class="menu-desplegable">
+                        <p><strong>Correo:</strong> Barrio el Gallito</p>
+                        <p><strong>Dirección:</strong> Calle Sur #321, Ciudad</p>
+                        <p><strong>Genereo:</strong>Masculino</p>
+                        <p><strong>Descripcion:</strong>Compadre</p>
+                    </div>
+                </td>
                 <td>+502 5812 9876</td>
                 <td class="icono"><a href="#"><span class="fa fa-star fa-2x"></span></a></td>
             </tr>
             <tr>
                 <td>U005</td>
-                <td><a href="detallescontacto.html">Ileana Carolina Fuentes</a></td>
+                <td class="contacto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8102/8102780.png" alt="Contacto" class="foto-contacto">
+                    <a href="#" onclick="toggleMenu('menu-5')">Ileana Carolina Fuentes</a>
+                    <div id="menu-5" class="menu-desplegable">
+                        <p><strong>Correo:</strong> ileana.fuentes@gmail.com</p>
+                        <p><strong>Dirección:</strong> Peten Flores</p>
+                        <p><strong>Genereo:</strong>Femenino</p>
+                        <p><strong>Descripcion:</strong>Jefa de Estación</p>
+                    </div>
+                </td>
                 <td>+502 6765 4321</td>
                 <td class="icono"><a href="#"><span class="fa fa-star fa-2x"></span></a></td>
             </tr>
         </tbody>
     </table>
+
+    <script>
+        function toggleMenu(menuId) {
+            var menu = document.getElementById(menuId);
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 
